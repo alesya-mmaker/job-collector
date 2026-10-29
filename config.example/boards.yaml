@@ -1,0 +1,78 @@
+# Русскоязычные IT-площадки (кроме hh). Только удалённые вакансии.
+# Habr Career ищет по словам сам; Geekjob и getmatch отдают всю ленту.
+# В любом случае каждое слово проверяется у нас: в названии, навыках и
+# полном описании. Правила слов те же, что в marks.yaml: обычная фраза
+# ищется целым словом, пробел и дефис взаимозаменяемы («AI-инженер» =
+# «AI инженер»). Язык запросов hh (OR, кавычки) здесь не работает.
+
+boards:
+  habr:
+    enabled: true
+  geekjob:
+    enabled: true
+  getmatch:
+    enabled: true
+
+terms:
+  - text: Bubble
+    direction: продукт
+  - text: no-code
+    direction: продукт
+  - text: ноукод
+    direction: продукт
+  - text: low-code
+    direction: продукт
+  - text: AI-разработчик
+    direction: продукт
+  - text: ИИ-разработчик
+    direction: продукт
+  - text: AI-инженер
+    direction: продукт
+  - text: ИИ-инженер
+    direction: продукт
+  - text: AI engineer
+    direction: продукт
+  - text: AI developer
+    direction: продукт
+  - text: AI-программист
+    direction: продукт
+  - text: LLM-инженер
+    direction: продукт
+  - text: LLM-разработчик
+    direction: продукт
+  - text: LLM engineer
+    direction: продукт
+  - text: AI-assisted
+    direction: продукт
+  - text: Claude Code
+    direction: продукт
+  - text: Cursor
+    direction: продукт
+  - text: вайб-кодинг
+    direction: продукт
+  - text: вайб-кодер
+    direction: продукт
+  - text: vibe coding
+    direction: продукт
+  - text: vibe coder
+    direction: продукт
+  - text: LLM
+    direction: продукт
+  - text: AI-агенты
+    direction: продукт
+  - text: prompt engineer
+    direction: продукт
+  - text: промпт-инженер
+    direction: продукт
+  - text: Supabase
+    direction: продукт
+  - text: продуктовая разработка
+    direction: продукт
+  - text: n8n
+    direction: автоматизация
+  - text: Make.com
+    direction: автоматизация
+  - text: Zapier
+    direction: автоматизация
+  - text: автоматизация бизнес-процессов
+    direction: автоматизация

@@ -1,0 +1,62 @@
+# Поисковые запросы hh.ru. Синтаксис запроса — язык поиска hh:
+# https://hh.ru/article/1175
+# id — постоянный ключ запроса: по нему хранится дата последнего сбора.
+# Если поменять id, запрос будет считаться новым.
+
+directions:
+  # Порядок = приоритет: если вакансия нашлась по запросам разных
+  # направлений, ей ставится первое по списку.
+  - продукт
+  - автоматизация
+
+queries:
+  - id: bubble
+    text: 'Bubble'
+    direction: продукт
+    enabled: true
+  - id: nocode
+    text: 'no-code OR nocode OR ноукод OR low-code'
+    direction: продукт
+    enabled: true
+  - id: ai_dev
+    text: '"AI-разработчик" OR "ИИ-разработчик" OR "AI-инженер" OR "ИИ-инженер" OR "AI engineer" OR "AI developer" OR "AI-программист" OR "LLM-инженер" OR "LLM-разработчик" OR "LLM engineer" OR "AI-assisted"'
+    direction: продукт
+    enabled: true
+  - id: ai_tools
+    text: '"Claude Code" OR Cursor OR "вайб-кодинг" OR "вайбкодинг" OR "вайб-кодер" OR "вайбкодер" OR "vibe coding" OR "vibe coder"'
+    direction: продукт
+    enabled: true
+  - id: supabase
+    text: 'Supabase'
+    direction: продукт
+    enabled: true
+  - id: prompt
+    text: '"prompt engineer" OR "промпт-инженер" OR "промпт инженер" OR "prompt engineering"'
+    direction: продукт
+    enabled: true
+  - id: llm
+    text: 'LLM OR "языковые модели" OR "AI-агенты"'
+    direction: продукт
+    enabled: true
+  - id: automation_tools
+    text: 'n8n OR Make OR Zapier'
+    direction: автоматизация
+    enabled: true
+  - id: bpa
+    text: '"автоматизация бизнес-процессов"'
+    direction: автоматизация
+    enabled: true
+  - id: product_dev
+    text: '"продуктовая разработка"'
+    direction: продукт
+    enabled: true
+
+# Подработка: частичная и проектная занятость, удалённо.
+side_jobs:
+  enabled: true
+  # Пустой текст = без фильтра по теме
+  text: '"оператор данных" OR "оператор ПК" OR "ввод данных" OR обработчик OR "обработка данных" OR "менеджер чата" OR "чат-менеджер" OR "оператор чата" OR модератор OR администратор OR поддержка OR ассистент OR помощник OR "контент-менеджер" OR разметчик OR "разметка данных" OR асессор OR транскрибатор'
+  # Где искать текст: name — только в названии вакансии,
+  # пусто — везде (название, компания, описание)
+  search_field: name
+  employment_forms: [PART, PROJECT]

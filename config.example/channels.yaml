@@ -1,0 +1,69 @@
+# Публичные телеграм-каналы. Читается веб-превью https://t.me/s/<name>.
+# name — имя канала без @.
+
+channels:
+- name: remotehunters
+  enabled: true
+- name: vibe_coders_zerocoder
+  enabled: true
+- name: Digital_chat_hr
+  enabled: true
+- name: it_remote
+  enabled: true
+- name: udalenka_it
+  enabled: true
+- name: forproducts
+  enabled: true
+- name: nocode_jobs
+  enabled: true
+- name: remote_work_it
+  enabled: true
+- name: rabota_it_remote
+  enabled: true
+- name: remoteit
+  enabled: true
+- name: jobs_for_analysts
+  enabled: true
+- name: it_vakansii_jobs
+  enabled: true
+- name: JobOfferInside
+  enabled: true
+- name: evacuatejobs
+  enabled: true
+- name: remotegeekjob
+  enabled: true
+- name: jobfortm
+  enabled: true
+- name: youritjob
+  enabled: true
+- name: young_relocate
+  enabled: true
+- name: geekjobs
+  enabled: true
+- name: Relocats
+  enabled: true
+keywords:
+- bubble
+- no-code
+- nocode
+- ноукод
+- low-code
+- n8n
+- make.com
+- zapier
+- re:ai[- ]?(разработчик|инженер|агент\w*)
+- re:ии[- ]?(разработчик|инженер|агент\w*)
+- llm
+- cursor
+- claude
+- re:вайб[- ]?код\w*
+- vibe coding
+- vibe coder
+- re:(ai|ии|llm)[- ]?(инженер|программист)\w*
+- AI developer
+- AI-assisted
+- re:автоматизаци\w* бизнес[- ]?процесс\w*
+- supabase
+- openai
+- re:промпт\w*
+- prompt engineer

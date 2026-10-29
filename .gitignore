@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# локальные данные: база, логи, выгрузки
+data/
+dumps/
+
+# личные настройки; образец лежит в config.example/
+config/
+
+# секреты и локальные файлы окружения
+.env
+.env.*
+!.env.example
+
+# личные файлы, не относящиеся к коду
+*.pdf
+job-search-kit/
+CLAUDE.md
+.claude/

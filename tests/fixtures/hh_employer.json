@@ -1,0 +1,66 @@
+{
+ "accredited_it_employer": true,
+ "alternate_url": "https://hh.ru/employer/1455",
+ "applicant_services": {
+  "target_employer": {
+   "count": 2
+  }
+ },
+ "area": {
+  "id": "113",
+  "name": "Россия",
+  "url": "https://api.hh.ru/areas/113"
+ },
+ "branded_description": "<style>...</style><div>...</div><script></script>",
+ "branding": {
+  "makeup": {
+   "header_picture": {
+    "mob_app_path": "https://hhcdn.ru/branding-pictures/001.jpeg",
+    "mob_app_url": "https://img.hhcdn.ru/branding-pictures/001.jpeg",
+    "web_path": "https://hhcdn.ru/branding-pictures/000.jpeg"
+   },
+   "url": "/employer/makeup/webview/12"
+  },
+  "template_code": "makeup:123",
+  "template_version_id": "10",
+  "type": "makeup"
+ },
+ "country_code": "RU",
+ "description": "Хороший работодатель",
+ "id": "1455",
+ "industries": [
+  {
+   "id": "7.540",
+   "name": "Разработка программного обеспечения"
+  },
+  {
+   "id": "9.399",
+   "name": "Мобильная связь"
+  }
+ ],
+ "insider_interviews": [
+  {
+   "id": "12345",
+   "title": "Лучшие из лучших",
+   "url": "https://hh.ru/interview/12345?employerId=1455"
+  },
+  {
+   "id": "54321",
+   "title": "История успеха",
+   "url": "https://hh.ru/interview/54321?employerId=1455"
+  }
+ ],
+ "is_identified_by_esia": false,
+ "logo_urls": {
+  "90": "https://hh.ru/employer-logo/289027.png",
+  "240": "https://hh.ru/employer-logo/289169.png",
+  "original": "https://hh.ru/file/2352807.png"
+ },
+ "name": "HeadHunter",
+ "open_vacancies": 19,
+ "relations": [],
+ "site_url": "https://hh.ru",
+ "trusted": true,
+ "type": "company",
+ "vacancies_url": "https://api.hh.ru/vacancies?employer_id=1455"
+}

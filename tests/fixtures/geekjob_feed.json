@@ -1,0 +1,192 @@
+{
+ "page": 1,
+ "nextpage": 2,
+ "pagecount": 1,
+ "documentsCount": 266,
+ "data": [
+  {
+   "position": "Разработчик Vertica / Инженер данных (Node.js)",
+   "salary": "",
+   "country": "Россия",
+   "city": "Санкт-Петербург",
+   "jobFormat": {
+    "remote": false,
+    "relocate": false,
+    "parttime": false,
+    "inhouse": true
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Смарт Геймс Девелопмент",
+    "logo": "250818183147.png",
+    "id": "6707c56e0f5bb2a92009bf87"
+   },
+   "id": "6ad8a20f4e10b221c2017dc1"
+  },
+  {
+   "position": "SMM-менеджер",
+   "salary": "",
+   "country": null,
+   "city": null,
+   "jobFormat": {
+    "remote": true,
+    "relocate": false,
+    "parttime": false,
+    "inhouse": false
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": "3",
+    "name": "Рекрутер Sara",
+    "logo": "250822143413.png",
+    "id": "686f7dc8107c395cc30d3894"
+   },
+   "id": "6ad8942823376c4c6c0d5185"
+  },
+  {
+   "position": "Junior+/Middle QA Engineer",
+   "salary": "",
+   "country": null,
+   "city": null,
+   "jobFormat": {
+    "remote": true,
+    "relocate": false,
+    "parttime": false,
+    "inhouse": false
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Starplay Games",
+    "logo": "250820164837.png",
+    "id": "67a63cb250855217050d8d63"
+   },
+   "id": "6ad88274d361cf501f0cbbdf"
+  },
+  {
+   "position": "Senior DevOps Engineer (гибрид)",
+   "salary": "",
+   "country": "Россия",
+   "city": "Москва",
+   "jobFormat": {
+    "remote": false,
+    "relocate": true,
+    "parttime": false,
+    "inhouse": true
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Agima.ru",
+    "logo": null,
+    "id": "6ad87ac4dc6383b2c50b4c24"
+   },
+   "id": "6ad87c29789d243aa50b7f0f"
+  },
+  {
+   "position": "Growth Product Manager - Mobile Web",
+   "salary": "",
+   "country": null,
+   "city": null,
+   "jobFormat": {
+    "remote": true,
+    "relocate": false,
+    "parttime": false,
+    "inhouse": false
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "VLProjects",
+    "logo": "250813133215.png",
+    "id": "6602e65eeb1c539e280a0626"
+   },
+   "id": "6ad84b9e1ed8bf493500c907"
+  },
+  {
+   "position": "Без опыта. SonQ. Обработка и сортировка данных. Заполнение таблиц.",
+   "salary": "216K — 488K ₽",
+   "country": "Belarus",
+   "city": "Minsk",
+   "jobFormat": {
+    "remote": true,
+    "relocate": false,
+    "parttime": true,
+    "inhouse": false
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Prog Nonce",
+    "logo": null,
+    "id": "6ad80ccc2f1c17eaa504e807"
+   },
+   "id": "6ad80d5e0b8be219e5073076"
+  },
+  {
+   "position": "Без опыта. SonQ. Обработка и сортировка данных. Заполнение таблиц.",
+   "salary": "216K — 488K ₽",
+   "country": "Belarus",
+   "city": "Minsk",
+   "jobFormat": {
+    "remote": true,
+    "relocate": false,
+    "parttime": true,
+    "inhouse": false
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Prog Nonce",
+    "logo": null,
+    "id": "6ad80ccc2f1c17eaa504e807"
+   },
+   "id": "6ad80d5d7bbd3922f00e2e2e"
+  },
+  {
+   "position": "roK / Обрaботкa и сортировкa дaнных по зaдaнному прaвилу / Зaполнeниe тaблиц",
+   "salary": "185K — 268K ₽",
+   "country": "Russia",
+   "city": "Moscow",
+   "jobFormat": {
+    "remote": true,
+    "relocate": true,
+    "parttime": true,
+    "inhouse": true
+   },
+   "log": {
+    "modify": "21 октября",
+    "archived": null
+   },
+   "company": {
+    "type": 1,
+    "name": "Mini Acronic",
+    "logo": null,
+    "id": "6ad80b001d4e762f92061186"
+   },
+   "id": "6ad80b8fae0d514c580ddf28"
+  }
+ ]
+}

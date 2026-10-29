@@ -1,0 +1,432 @@
+{
+ "arguments": [
+  {
+   "argument": "area",
+   "cluster_group": {
+    "id": "area",
+    "name": "Регион"
+   },
+   "disable_url": "https://...",
+   "value": "1",
+   "value_description": "Москва"
+  },
+  {
+   "argument": "area",
+   "cluster_group": {
+    "id": "area",
+    "name": "Регион"
+   },
+   "disable_url": "https://...",
+   "value": "2",
+   "value_description": "Санкт-Петербург"
+  },
+  {
+   "argument": "text",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "менеджер по продажам",
+   "value_description": null
+  },
+  {
+   "argument": "search_field",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "name",
+   "value_description": "в названии вакансии"
+  },
+  {
+   "argument": "experience",
+   "cluster_group": {
+    "id": "experience",
+    "name": "Опыт работы"
+   },
+   "disable_url": "https://...",
+   "value": "between3And6",
+   "value_description": "От 3 до 6 лет"
+  },
+  {
+   "argument": "employment",
+   "cluster_group": {
+    "id": "employment",
+    "name": "Тип занятости"
+   },
+   "disable_url": "https://...",
+   "value": "full",
+   "value_description": "Полная занятость"
+  },
+  {
+   "argument": "schedule",
+   "cluster_group": {
+    "id": "schedule",
+    "name": "График работы"
+   },
+   "disable_url": "https://...",
+   "value": "fullDay",
+   "value_description": "Полный день"
+  },
+  {
+   "argument": "metro",
+   "cluster_group": {
+    "id": "metro",
+    "name": "Метро"
+   },
+   "disable_url": "https://...",
+   "hex_color": "13703a",
+   "metro_type": "station",
+   "value": "2.133",
+   "value_description": "Сокол"
+  },
+  {
+   "argument": "industry",
+   "cluster_group": {
+    "id": "industry",
+    "name": "Отрасль компании"
+   },
+   "disable_url": "https://...",
+   "value": "51",
+   "value_description": "ЖКХ"
+  },
+  {
+   "argument": "industry",
+   "cluster_group": {
+    "id": "sub_industry",
+    "name": "Сфера компании"
+   },
+   "disable_url": "https://...",
+   "value": "51.675",
+   "value_description": "Энергосбережение"
+  },
+  {
+   "argument": "label",
+   "cluster_group": {
+    "id": "label",
+    "name": "Исключение"
+   },
+   "disable_url": "https://...",
+   "value": "not_from_agency",
+   "value_description": "Без вакансий агентств"
+  },
+  {
+   "argument": "currency",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "USD",
+   "value_description": null
+  },
+  {
+   "argument": "only_with_salary",
+   "cluster_group": {
+    "id": "salary",
+    "name": "Зарплата"
+   },
+   "disable_url": "https://...",
+   "value": "true",
+   "value_description": "Указана зарплата"
+  },
+  {
+   "argument": "salary",
+   "cluster_group": {
+    "id": "salary",
+    "name": "Зарплата"
+   },
+   "disable_url": "https://...",
+   "value": "1500",
+   "value_description": "от 1500 USD"
+  },
+  {
+   "argument": "bottom_lat",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "55.58",
+   "value_description": null
+  },
+  {
+   "argument": "left_lng",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "37.52",
+   "value_description": null
+  },
+  {
+   "argument": "top_lat",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "55.74",
+   "value_description": null
+  },
+  {
+   "argument": "right_lng",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "37.86",
+   "value_description": null
+  },
+  {
+   "argument": "date_from",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "2017-02-01",
+   "value_description": null
+  },
+  {
+   "argument": "date_to",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "2017-02-10",
+   "value_description": null
+  },
+  {
+   "argument": "order_by",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "salary_desc",
+   "value_description": "По убыванию зарплат"
+  },
+  {
+   "argument": "sort_point_lat",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "55.74",
+   "value_description": null
+  },
+  {
+   "argument": "sort_point_lng",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "37.86",
+   "value_description": null
+  },
+  {
+   "argument": "period",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "7",
+   "value_description": "За неделю"
+  },
+  {
+   "argument": "employer_id",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "1455",
+   "value_description": "HeadHunter"
+  },
+  {
+   "argument": "search_period",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "7",
+   "value_description": "За неделю"
+  },
+  {
+   "argument": "no_magic",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "true",
+   "value_description": null
+  },
+  {
+   "argument": "host",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "hh.kz",
+   "value_description": null
+  },
+  {
+   "argument": "per_page",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "10",
+   "value_description": null
+  },
+  {
+   "argument": "page",
+   "cluster_group": null,
+   "disable_url": "https://...",
+   "value": "0",
+   "value_description": null
+  },
+  {
+   "argument": "professional_role",
+   "cluster_group": {
+    "id": "professional_role",
+    "name": "Профессиональная роль"
+   },
+   "disable_url": "https://...",
+   "value": "90",
+   "value_description": "Охранник"
+  }
+ ],
+ "clusters": null,
+ "fixes": null,
+ "found": 13,
+ "items": [
+  {
+   "accept_incomplete_resumes": false,
+   "address": {
+    "building": "9с10",
+    "city": "Москва",
+    "description": "На проходной потребуется паспорт",
+    "lat": 55.807794,
+    "lng": 37.638699,
+    "metro_stations": [
+     {
+      "lat": 55.807794,
+      "line_id": "6",
+      "line_name": "Калужско-Рижская",
+      "lng": 37.638699,
+      "station_id": "6.8",
+      "station_name": "Алексеевская"
+     }
+    ],
+    "street": "улица Годовикова"
+   },
+   "alternate_url": "https://hh.ru/vacancy/8331228",
+   "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=8331228",
+   "area": {
+    "id": "1",
+    "name": "Москва",
+    "url": "https://api.hh.ru/areas/1"
+   },
+   "brand_snippet": {
+    "background": {
+     "color": null,
+     "gradient": {
+      "angle": 45,
+      "color_list": [
+       {
+        "color": "#FF0000",
+        "position": 10
+       },
+       {
+        "color": "#FA0000",
+        "position": 9
+       }
+      ]
+     }
+    },
+    "logo": "https://hhcdn.ru/00001.png",
+    "logo_scalable": {
+     "default": {
+      "height": 300,
+      "url": "https://hhcdn.ru/00021.png",
+      "width": 500
+     },
+     "xs": {
+      "height": 100,
+      "url": "https://hhcdn.ru/00022.png",
+      "width": 200
+     }
+    },
+    "logo_xs": "https://hhcdn.ru/00002.png",
+    "picture": "https://hhcdn.ru/00003.png",
+    "picture_scalable": {
+     "default": {
+      "height": 350,
+      "url": "https://hhcdn.ru/00023.png",
+      "width": 550
+     },
+     "xs": {
+      "height": 150,
+      "url": "https://hhcdn.ru/00024.png",
+      "width": 250
+     }
+    },
+    "picture_xs": "https://hhcdn.ru/00004.png"
+   },
+   "branding": {
+    "tariff": "BASIC",
+    "type": "CONSTRUCTOR"
+   },
+   "closed_for_applicants": false,
+   "contacts": {
+    "name": "Имя",
+    "phones": [
+     {
+      "city": "985",
+      "comment": null,
+      "country": "7",
+      "number": "000-00-00"
+     }
+    ]
+   },
+   "counters": {
+    "responses": 0
+   },
+   "department": {
+    "id": "HH-1455-TECH",
+    "name": "HeadHunter::Технический департамент"
+   },
+   "employer": {
+    "accredited_it_employer": false,
+    "alternate_url": "https://hh.ru/employer/1455",
+    "country_id": 1,
+    "id": "1455",
+    "logo_urls": {
+     "90": "https://hh.ru/employer-logo/289027.png",
+     "240": "https://hh.ru/employer-logo/289169.png",
+     "original": "https://hh.ru/file/2352807.png"
+    },
+    "name": "HeadHunter",
+    "trusted": true,
+    "url": "https://api.hh.ru/employers/1455"
+   },
+   "has_test": true,
+   "id": "8331228",
+   "insider_interview": {
+    "id": "12345",
+    "url": "https://hh.ru/interview/12345?employerId=777"
+   },
+   "misleading_vacancy_alert": false,
+   "name": "Секретарь",
+   "professional_roles": [
+    {
+     "id": "90",
+     "name": "Охранник"
+    }
+   ],
+   "published_at": "2013-07-08T16:17:21+0400",
+   "relations": [],
+   "response_letter_required": true,
+   "response_url": null,
+   "salary": {
+    "currency": "RUR",
+    "from": 30000,
+    "gross": true,
+    "to": null
+   },
+   "salary_range": {
+    "currency": "RUR",
+    "frequency": {
+     "id": "MONTHLY",
+     "name": "Раз в месяц"
+    },
+    "from": 30000,
+    "gross": true,
+    "mode": {
+     "id": "MONTH",
+     "name": "За месяц"
+    },
+    "to": null
+   },
+   "schedule": {
+    "id": "fullDay",
+    "name": "Полный день"
+   },
+   "show_logo_in_search": true,
+   "snippet": {
+    "requirement": "Высшее образование. Опыт работы в качестве <highlighttext>секретаря</highlighttext>, офис-менеджера. Знание делопроизводства, документооборота. Коммуникативные навыки.",
+    "responsibility": "Документооборот (регистрация, отправка, контроль исполнения писем, ведение протоколов, отчетность). Распределение корреспонденции. Прием и распределение телефонных звонков."
+   },
+   "sort_point_distance": 226.001293,
+   "type": {
+    "id": "open",
+    "name": "Открытая"
+   },
+   "url": "https://api.hh.ru/vacancies/8331228"
+  }
+ ],
+ "page": 0,
+ "pages": 13,
+ "per_page": 1,
+ "suggests": null
+}

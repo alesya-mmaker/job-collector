@@ -1,0 +1,394 @@
+# Отсев: вакансии, которые точно не нужны. В отличие от пометок, отсеянная
+# вакансия скрывается из ленты и дампа (посмотреть её можно фильтром
+# «Отсеянные»). Из базы она не удаляется: поэтому не соберётся заново, а если
+# поменять правила, вернётся. Вакансии, где есть отклик или заметка,
+# не отсеиваются никогда.
+#
+# where: title        — ищется в названии вакансии
+#        requirements — в описании, кроме разделов и строк «Будет плюсом / Желательно»
+# scope: main — основная работа, side — подработка, all — везде
+# patterns — слова и фразы без учёта регистра:
+#            «менеджер» — целое слово; «менеджер*» — слово с любым окончанием;
+#            "re:" — регулярное выражение
+# unless — исключения: если найдены там же, где правило, вакансия остаётся
+# unless_no_experience: true — вакансия остаётся, если опыт не требуется
+
+rules:
+  - name: менеджер
+    enabled: true
+    where: title
+    scope: main
+    patterns: [менеджер*, manager*, продакт*, проджект*, pm, product owner]
+
+  - name: руководитель
+    enabled: true
+    where: title
+    scope: main
+    patterns: [руководител*, директор*, начальник*, заместител*, супервайзер*, владелец*, лидер*,
+               head, chief, lead, ceo, cto, cpo, cpto, coo, cfo, cmo, тимлид*, техлид*, team lead*, teamlead*]
+
+  - name: аналитик
+    enabled: true
+    where: title
+    scope: main
+    patterns: [аналитик, analyst*, analysis, analytics]
+
+  - name: программист, backend, frontend
+    enabled: true
+    where: title
+    scope: all
+    patterns: [программист*, backend*, back end*, бэкенд*, бекенд*, frontend*, front end*, фронтенд*,
+               software engineer*, software developer*, android, ios, unity]
+    unless: &ai_assisted
+      - 're:ai[\s\-]*(assisted|first|native|augmented)'
+      - 're:ии[\s\-]*(first|native)'
+      - vibe*
+      - vibecod*
+      - вайб*
+      - claude code
+      - cursor
+      - codex
+      - 're:(через|с помощью|с применением)\s+(ии|ai|нейросет\w*)'
+
+  - name: fullstack без AI-assisted
+    enabled: true
+    where: title
+    scope: all
+    patterns: [fullstack*, full stack*, фулстек*, фуллстек*]
+    unless: *ai_assisted
+
+  - name: язык или платформа в названии
+    enabled: true
+    where: title
+    scope: all
+    patterns: [1с, 1c, java, python, go, golang, 're:\bc#', 're:\.net\b', 're:[cс]\+\+', php, kotlin, swift,
+               flutter, rust, scala, ruby, abap, delphi, oracle, sap, angular, vue, vue.js, react, node.js, nodejs,
+               nestjs, typescript, javascript, js, laravel, django, fastapi, lua, битрикс*, bitrix*, elma*,
+               camunda, optimacros, bpmsoft, naumen, bi, power bi, next.js, nextjs, next]
+    unless: *ai_assisted
+
+  - name: GetCourse и онлайн-школы в названии
+    enabled: true
+    where: title
+    scope: main
+    patterns: [getcourse, геткурс*, salebot, автоворонк*, онлайн школ*]
+
+  - name: иностранный язык в названии
+    enabled: true
+    where: title
+    scope: all
+    patterns: ['re:(?<![а-я])(?!русск)[а-я]+ск(ий|ого|ом|им)\s+язык\w*', english]
+
+  - name: работа в другой стране
+    enabled: true
+    where: title
+    scope: all
+    patterns: [вне рф, вне рб, relocation*, релокац*]
+
+  - name: инженерия, данные, ML, инфраструктура
+    enabled: true
+    where: title
+    scope: all
+    patterns: [devops*, devsecops*, mlops*, llmops*, sre, site reliability, data scientist*, data science,
+               data engineer*, data инженер*, инженер* данных, науке о данных, ml, machine learning, машинн* обучени*,
+               computer vision, nlp, архитектор*, architect*, системн* администратор*, информационн* безопасност*,
+               инженер* по безопасност*, безопасн* разработк*, appsec, security, researcher*, исследователь, quant*,
+               инфраструктур*, platform engineer*, smart contract*, iot, ngfw, deployed*, deployment*]
+
+  - name: тестирование
+    enabled: true
+    where: title
+    scope: all
+    patterns: [qa, aqa, sdet, тестировщик*, тестировани*, in test, test engineer*]
+
+  - name: техподдержка в основной работе
+    enabled: true
+    where: title
+    scope: main
+    patterns: [поддержк*, support, саппорт*]
+    unless: [ai, ии, llm*, ai-агент*, ии-агент*]
+
+  - name: продажи и лидогенерация
+    enabled: true
+    where: title
+    scope: all
+    patterns: [продаж*, продавец*, sales, лидоген*, лидоруб*, lead generation, назначени* встреч*, bdm, bdr, bdd, sdr,
+               business development, развити* бизнеса, развити* рынка, развити* b2b, presale*, pre sale*, пресейл*,
+               аккаунт*, account*, телемаркет*, холодн*, амбассадор*, ambassador*, привлечени* клиент*,
+               customer success, csm, аутрич*, представител*]
+    unless: [без продаж]
+
+  - name: маркетинг, реклама, SEO
+    enabled: true
+    where: title
+    scope: all
+    patterns: [маркетолог*, маркетинг*, marketing*, marketer*, seo, geo, поисков* оптимизац*, таргет*, реклам*,
+               ppc, ads, aso, user acquisition, трафик*, traffic, growth, link builder*, линкбилд*, smm, смм]
+
+  - name: продюсер, креатор, блогер
+    enabled: true
+    where: title
+    scope: all
+    patterns: [продюсер*, producer*, креатор*, creator*, ugc, ugs, рилс*, reels, 're:\w*мейкер\w*',
+               're:\w*монтаж\w*', блогер*, сценарист*, копирайт*, эфир*]
+
+  - name: тексты и контент
+    enabled: true
+    where: title
+    scope: main
+    patterns: [контент*, content, редактор*, editor*, автор* статей, комьюнити*, community, переводчик*,
+               локализац*, технический писатель, технического писателя, журналист*]
+
+  - name: бизнес-ассистент
+    enabled: true
+    where: title
+    scope: all
+    patterns:
+      - бизнес ассистент*
+      - business assistant*
+      - executive assistant*
+      - personal assistant*
+      - 're:(ассистент|асистент|помощник)\w*\s*(/\s*\w+\s*)?(руководител|предпринимател|собственник|директор|генерального|эксперта|ceo)\w*'
+      - 're:личн\w*\s*-?\s*(бизнес\s*-?\s*)?(ассистент|помощник)\w*'
+      - бизнес помощник*
+
+  - name: консультант
+    enabled: true
+    where: title
+    scope: main
+    patterns: [консультант*, consultant*]
+
+  - name: юрист, юрисдикция
+    enabled: true
+    where: title
+    scope: all
+    patterns: [юрист*, юрисконсульт*, юрисдикц*, юридическ*, legal, lawyer*, банкротств*, взыскани*]
+
+  - name: финансы, экономика, бухгалтерия
+    enabled: true
+    where: title
+    scope: all
+    patterns: [экономист*, финанс*, financ*, бухгалтер*, accountant*, аудитор*, pricing, казначейств*, себестоимост*, мсфо, рсбу, ifrs]
+
+  - name: HR и рекрутинг
+    enabled: true
+    where: title
+    scope: main
+    patterns: [hr, рекрут*, recruit*, sourcer*, подбор* персонал*]
+
+  - name: CRM-специалист с опытом
+    enabled: true
+    where: title
+    scope: all
+    patterns: ['re:crm']
+    unless_no_experience: true
+
+  - name: дизайнер с опытом
+    enabled: true
+    where: title
+    scope: all
+    patterns: [дизайнер*, designer*, 're:ux\s*/\s*ui', 're:ui\s*/\s*ux']
+    unless: [начинающ*, junior, стажер*, стажёр*, младш*, без опыта]
+    unless_no_experience: true
+
+  - name: 2D/3D
+    enabled: true
+    where: title
+    scope: main
+    patterns: [2d*, 3d*]
+
+  - name: не IT
+    enabled: true
+    where: title
+    scope: all
+    patterns: [врач*, рентген*, терапевт*, психолог*, клиническ*, логист*, риелтор*, риэлтор*, репетитор*, учител*,
+               ландшафтн*, проектировщик*, турагент*, туризм*, тревел*, рукодел*, бьюти*, футбол*]
+
+  - name: требуют программирования
+    enabled: true
+    where: requirements
+    scope: main
+    patterns:
+      - 're:(уверенн|свободн|отличн|глубок|хорош|продвинут|сильн)\w*\s+(знани|владени|понимани|навык)\w*\s+(одн\w+\s+|любо\w+\s+)?(из\s+)?(язык\w*\s+программирования|python|java|go|golang|c#|php|kotlin|typescript|javascript|js|c\+\+|ruby|rust|scala)'
+      - 're:(уверенн|свободн)\w*\s+(владени|знани)\w*\s+(одним|любым|хотя бы одним)\s+(из\s+)?язык\w*'
+      - 're:опыт\w*\s+(коммерческ|промышленн)\w*\s+(разработк|программировани)\w*'
+      - 're:коммерческ\w*\s+опыт\w*\s+(разработк|программировани)\w*'
+      - 're:коммерческ\w*\s+(разработк|программировани)\w*'
+      # «разработка на Node.js + TypeScript» — на любом языке программирования
+      - 're:(разработк|программировани)\w*\s+на\s+(python|java|go|golang|c#|php|kotlin|typescript|javascript|js|node|c\+\+|ruby|rust|scala|swift|1[сc])(?!\w)'
+      - 're:(уверенн|глубок|отличн|свободн)\w*\s+(знани|владени|понимани)\w*\s+sql'
+      - 're:глубок\w*\s+понимани\w*\s+(llm|ml|нейросет|трансформер|машинн|архитектур)\w*'
+      - под капотом
+      - высок* нагруз*
+      - высоконагруж*
+      - highload*
+      - high load*
+      - многопоточн*
+      - сборк* мусора
+      - 're:(архитектурн\w*\s+паттерн|шаблон\w*\s+проектирования|паттерн\w*\s+проектирования|design\s+pattern)\w*'
+      - 're:построени\w*\s+(и\s+использовани\w*\s+)?индекс\w*'
+      - 're:(2d|3d)\s*(и\s*(2d|3d)\s*)?(разработк|моделировани|графи|анимаци)\w*'
+      - 're:(пишете|пишешь|писать|умеете писать|умеешь писать)\s+код\w*'
+      - обучени* моделей
+      - обучени* ml моделей
+      - обуча* модел*
+      - дообучени*
+      - fine tun*
+      - finetun*
+      - файнтюн*
+
+  - name: требуют профильное образование
+    enabled: true
+    where: requirements
+    scope: main
+    patterns:
+      - 're:профильн\w*\s+(\w+\s+)?образовани\w*'
+      # «техническое образование», «высшее техническое/математическое образование»
+      - 're:(техническ|математическ|инженерн|экономическ|юридическ)\w*(\s*(/|,|или|и)\s*\w+)*\s+(высш\w*\s+)?образовани\w*'
+      - 're:образовани\w*\s+в\s+(област\w*\s+)?(социолог|маркетинг|экономик|финанс|юриспруденц|математик|физик|информатик|computer science)\w*'
+      - 're:(bachelor|master)(.s)?\s+degree'
+
+  - name: стек, которого у меня нет
+    enabled: true
+    where: requirements
+    scope: main
+    patterns: [kafka, rabbitmq, elasticsearch, opensearch, grafana, prometheus, kubernetes, k8s, helm, terraform,
+               ansible, clickhouse, hadoop, spark, airflow, grpc, lua, golang, 're:\bна\s+go\b', java, kotlin, scala,
+               rust, 're:[cс]\+\+', 're:\bc#', 're:\.net\b', php, 1с, 1c, битрикс*, bitrix*, pytorch, tensorflow,
+               wiremock, mounteb*, stub сервер*, stub server*, ozon seller api, 're:(ozon|wildberries|wb|маркетплейс\w*)\s+api',
+               're:api\s+(ozon|wildberries|wb|маркетплейс\w*)', redis, векторн* бд, векторн* баз* данных, qdrant,
+               pgvector, pinecone, weaviate, milvus, chroma, chromadb, django*, drf, django rest framework, flask,
+               fastapi, spring*, jpa, jdbc, hibernate, mongodb, nosql, laravel, symfony, rails,
+               python, javascript, typescript, react, vue, angular, node.js, nodejs, next.js, nextjs, groovy,
+               bpmsoft, naumen, erudite, bi, power bi, tableau, superset, datalens, langflow]
+
+  - name: свободный английский или другой язык
+    enabled: true
+    where: requirements
+    scope: main
+    patterns:
+      - 're:(свободн|уверенн|разговорн|продвинут|бегл|хорош|отличн)\w*\s+(или\s+\w+\s+)?(знани\w*\s+|владени\w*\s+|уровень\s+)?английск\w*'
+      # любой заявленный уровень английского: B1, B2+, Intermediate…
+      - 're:(english|английск\w*)[^.\n]{0,40}(a2|b1|b2|c1|c2|intermediate|upper|advanced|fluent|свободн|уверенн)'
+      - 're:(a2|b1|b2|c1|c2|pre[\s-]*intermediate|intermediate|upper[\s-]*intermediate|fluent)[^.\n]{0,20}(english|английск)'
+      - 're:(?<!\w)(b1|b2|c1|c2)\+?\s*(level|уровень|уровня)'
+      - 're:(level|уровень|уровне)\s*(b1|b2|c1|c2)(?!\w)'
+      - 're:(свободн|уверенн|отличн|продвинут|разговорн|бегл)\w*\s+(владени\w*\s+|знани\w*\s+)?(?!русск)[а-я]+ск(им|ого|ий|ой)\s+язык\w*'
+      - 're:носител\w*\s+(?!русск)[а-я]+ск\w*\s+язык\w*'
+      - native speaker
+
+  - name: онлайн-школы, GetCourse, автоворонки, эфиры
+    enabled: true
+    where: requirements
+    scope: main
+    patterns: [getcourse, геткурс*, salebot, автоворонк*, эфир*]
+
+  - name: товарный бизнес и маркетплейсы
+    enabled: true
+    where: requirements
+    scope: main
+    patterns: [маркетплейс*, wildberries, ozon, селлер*, поиск* поставщик*, товарн* возможност*, товарн* матриц*,
+               карточ* товар*, юнит экономик*, создани* товар*]
+
+  - name: нужно жить в другой стране
+    enabled: true
+    where: requirements
+    scope: main
+    patterns:
+      - 're:(жить|проживать|проживани\w*|находиться|находитесь|находишься|резидент\w*|гражданств\w*|локаци\w*)[^.\n]{0,25}(азербайджан|узбекистан|армени|грузи|кыргызстан|киргизи|таджикистан|туркмени|турци|оаэ|дубай|дубае|кипр|серби|черногори|польш|европ|сша|малайзи|таиланд|индонези|вьетнам)\w*'
+      - вне рф
+      - вне рб
+      - 're:за\s+пределами\s+(рф|рб|россии|беларуси)'
+
+  - name: знание правил футбола
+    enabled: true
+    where: requirements
+    scope: main
+    patterns: [правил* футбол*]
+
+  # офис ни в каком виде: «онлайн/офлайн», «первые две недели в офисе», «На месте работодателя» в карточке hh
+  - name: офис, офлайн, гибрид
+    enabled: true
+    where: requirements
+    scope: all
+    patterns: [офис, офисе, в офис, office, on site, onsite, гибрид*, hybrid, офлайн*, оффлайн*, offline,
+               на месте работодателя, выездн*]
+    unless: [без офиса, офиса нет, нет офиса]
+
+  - name: продажи и анализ рынка в задачах
+    enabled: true
+    where: requirements
+    scope: all
+    patterns: [изучени* рынка, анализ* рынка, анализ* конкурент*, 're:рассказ\w*\s+(коллегам|знакомым|друзьям)',
+               представител* клиник*]
+
+  - name: реклама курсов и вебинаров
+    enabled: true
+    where: post
+    scope: main
+    patterns:
+      - вебинар*
+      - интенсив*
+      - мастер класс*
+      - 're:набор\s+(в|на)\s+[^.\n]{0,30}(поток|курс|групп)\w*'
+      - 're:(старт|начало)\s+[^.\n]{0,15}поток\w*'
+      - 're:(ведущ\w*|автор\w*)\s+курса'
+      - на курсе
+      - зарегистрир*
+      - промокод*
+      - 're:навык\w*\s+для\s+роста'
+
+  - name: командировки
+    enabled: true
+    where: requirements
+    scope: main
+    patterns: [командировк*]
+    unless: [без командировок, 're:командировк\w*\s+(не|нет)\b']
+
+  # ---------------------------------------------------------------- подработка
+
+  - name: подработка — не та роль
+    enabled: true
+    where: title
+    scope: side
+    patterns: [hr, ассистент*, асистент*, рекрут*, помощник* рекрутер*, контент*, ночн*, вечерн*]
+
+  - name: подработка — смены, график, задачи
+    enabled: true
+    where: requirements
+    scope: side
+    patterns: [ночн*, вечерн* смен*, вечерн* время, вечерн* часы,
+               # рабочее время вечером: «с 17:00 до 00:00», «18:00–23:00»
+               're:(с|from)\s*(1[7-9]|2[0-3])[:.]\d\d', 're:до\s*(00|0|24|01|02)[:.]\d\d', 're:(?<![\d/])2\s*/\s*2(?![\d/])', бухгалтер*,
+               бухгалтерск* учет*, переговор*, поиск* людей, поиск* кандидат*, подбор* персонал*, рекрут*, 1с, 1c,
+               brandanalytics, brand analytics, медиалоги*, систем* мониторинга]
+
+  - name: подработка — меньше 30 000 ₽
+    enabled: true
+    where: salary
+    scope: side
+    salary_below: 30000
+
+  # вакансия только для жителей другого города или региона; Минск и Беларусь — не отсеиваются
+  - name: только из определённого города
+    enabled: true
+    where: requirements
+    scope: all
+    patterns:
+      - 're:(только|исключительно|строго)[^.\n]{0,40}(\bг\.|\bгород\w*|\bобласт\w*|\bрегион\w*|\b(?:москв|петербург|спб|питер|новосибирск|екатеринбург|казан|нижн\w*\s+новгород|челябинск|самар|омск|ростов|уф[аеы]|красноярск|воронеж|перм|волгоград|краснодар|саратов|тюмен|тольятти|ижевск|барнаул|ульяновск|иркутск|хабаровск|ярославл|владивосток|махачкал|томск|оренбург|кемеров|новокузнецк|рязан|астрахан|пенз|липецк|киров|чебоксар|калининград|тул[аеы]|курск|ставропол|сочи|белгород|сургут|ханты|тверь|твери|вологд|мурманск|архангельск|алмат|астан|караганд|шымкент|гродн|брест|гомел|могил[её]в|витебск))'
+      - 're:(кандидат|соискател|специалист|сотрудник)\w*\s+(только\s+)?(из|с)\s+(г\.|город\w*|\b(?:москв|петербург|спб|питер|новосибирск|екатеринбург|казан|нижн\w*\s+новгород|челябинск|самар|омск|ростов|уф[аеы]|красноярск|воронеж|перм|волгоград|краснодар|саратов|тюмен|тольятти|ижевск|барнаул|ульяновск|иркутск|хабаровск|ярославл|владивосток|махачкал|томск|оренбург|кемеров|новокузнецк|рязан|астрахан|пенз|липецк|киров|чебоксар|калининград|тул[аеы]|курск|ставропол|сочи|белгород|сургут|ханты|тверь|твери|вологд|мурманск|архангельск|алмат|астан|караганд|шымкент|гродн|брест|гомел|могил[её]в|витебск))'
+      - 're:(проживающ|живущ|находящ|прожива)\w*[^.\n]{0,30}(\bг\.|\bгород\w*|\bобласт\w*|\bкра[еяй]\b|\b(?:москв|петербург|спб|питер|новосибирск|екатеринбург|казан|нижн\w*\s+новгород|челябинск|самар|омск|ростов|уф[аеы]|красноярск|воронеж|перм|волгоград|краснодар|саратов|тюмен|тольятти|ижевск|барнаул|ульяновск|иркутск|хабаровск|ярославл|владивосток|махачкал|томск|оренбург|кемеров|новокузнецк|рязан|астрахан|пенз|липецк|киров|чебоксар|калининград|тул[аеы]|курск|ставропол|сочи|белгород|сургут|ханты|тверь|твери|вологд|мурманск|архангельск|алмат|астан|караганд|шымкент|гродн|брест|гомел|могил[её]в|витебск))'
+      - 're:привязк\w*\s+к\s+(город|регион|местност|адрес)\w*'
+    unless: [минск*, беларус*, рб, из любого города, любого города, любом городе, любой точки, любого региона, не важен]
+
+  # ---------------------------------------------------------------- для всех
+
+  - name: повтор вакансии
+    enabled: true
+    where: duplicate
+    scope: all
+
+  - name: закрыта на сайте
+    enabled: true
+    where: closed
+    scope: all

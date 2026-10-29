@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вакансии</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css?v={{VERSION}}">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Вакансии</div>
+      <nav class="nav" id="nav">
+        <a href="#main" data-tab="main"><span>Вакансии</span><em class="count"></em></a>
+        <a href="#side" data-tab="side"><span>Подработка</span><em class="count"></em></a>
+        <a href="#posts" data-tab="posts"><span>Телеграм</span><em class="count"></em></a>
+        <div class="nav-sep"></div>
+        <a href="#logs" data-tab="logs"><span>Сборы и логи</span></a>
+        <a href="#settings" data-tab="settings"><span>Настройки</span></a>
+      </nav>
+      <div class="sidebar-foot">
+        <button class="btn primary block" id="runBtn">Запустить сбор</button>
+        <div class="run-state" id="runState"></div>
+        <div class="version" title="версия панели: дата и время последнего изменения">версия {{VERSION_LABEL}}</div>
+      </div>
+    </aside>
+    <main class="main" id="view"></main>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="app.js?v={{VERSION}}"></script>
+</body>
+</html>
